@@ -1,0 +1,9 @@
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text-shadow {
+  text-shadow: 5px 5px rgb(226, 226, 226);
+}
