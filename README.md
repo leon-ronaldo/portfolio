@@ -114,7 +114,8 @@ If you’ve built real apps, you know how painful these are.
 ## 📫 Links
 
 - Demo: https://ardour-ai-demo.vercel.app/
-- GitHub: https://github.com/yourusername
+- GitHub: https://github.com/leon-ronaldo/
+- LinkedIn: https://linkedin.com/leon-ronaldo-s/
 
 ---
 
