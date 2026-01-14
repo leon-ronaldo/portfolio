@@ -7,7 +7,7 @@ export default function Navbar() {
 
     return (
         <nav className="w-full flex justify-center">
-            <div className="w-full py-4 px-6 md:py-6 md:px-8 lg:py-8 flex items-center justify-between max-w-[1440px]">
+            <div className="w-full py-4 px-6 md:py-6 md:px-8 lg:py-8 flex items-center justify-between max-w-360">
                 {/* Logo */}
                 <div className="text-xl font-bold text-gray-900 w-1/4 flex justify-start">
                     leon<span className="text-blue-500">.</span>

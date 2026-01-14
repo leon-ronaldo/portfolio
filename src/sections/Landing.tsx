@@ -18,6 +18,7 @@ export default function Landing() {
             <Intro />
             <HeroImage />
             <SkillsShowcase />
+            <ContactBar />
         </section>
     </main>
 }
@@ -150,40 +151,45 @@ function SkillsShowcase() {
 
 function ContactBar() {
     return (
-        <div className="w-full flex flex-col items-center gap-4 mt-6 pb-8 px-6">
+        <div className="lg:fixed left-0 bottom-0 w-full flex justify-center">
+            <div className="flex justify-start max-w-360 w-full">
+                <div className="flex flex-col items-center gap-4 mt-6 pb-8 px-6 w-full lg:w-fit">
+                    <span className="lg:hidden">
+                        <Divider />
+                    </span>
 
-            <Divider />
+                    {/* Email pill */}
+                    <div className="bg-white w-full rounded-full px-6 py-3 text-sm text-gray-700">
+                        ronaldoleon029@gmail.com
+                    </div>
 
-            {/* Email pill */}
-            <div className="bg-white w-full rounded-full px-6 py-3 text-sm text-gray-700">
-                ronaldoleon029@gmail.com
-            </div>
+                    {/* Social icons */}
+                    <div className="flex gap-4">
+                        {/* Mail */}
+                        <a
+                            href="mailto:morgan@email.com"
+                            className="w-12 h-12 rounded-2xl bg-blue-500 flex items-center justify-center hover:scale-105 transition"
+                        >
+                            <Linkedin fill="white" className="text-white w-5 h-5" />
+                        </a>
 
-            {/* Social icons */}
-            <div className="flex gap-4">
-                {/* Mail */}
-                <a
-                    href="mailto:morgan@email.com"
-                    className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center hover:scale-105 transition"
-                >
-                    <Linkedin fill="white" className="text-white w-5 h-5" />
-                </a>
+                        {/* Twitter */}
+                        <a
+                            href="#"
+                            className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center hover:scale-105 transition"
+                        >
+                            <Github fill="#2b7fff" className="text-blue-500 w-5 h-5" />
+                        </a>
 
-                {/* Twitter */}
-                <a
-                    href="#"
-                    className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:scale-105 transition"
-                >
-                    <Github fill="#2b7fff" className="text-blue-500 w-5 h-5" />
-                </a>
-
-                {/* Behance */}
-                <a
-                    href="#"
-                    className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:scale-105 transition"
-                >
-                    <Dribbble fill="#ffabe7" className="text-[#bc569f] w-5 h-5" />
-                </a>
+                        {/* Behance */}
+                        <a
+                            href="#"
+                            className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center hover:scale-105 transition"
+                        >
+                            <Dribbble fill="#ffabe7" className="text-[#bc569f] w-5 h-5" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     );
