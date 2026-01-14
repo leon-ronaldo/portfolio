@@ -3,6 +3,8 @@
 
 body {
   background-color: #f2f4f5;
+  display: flex;
+  justify-content: center;
 }
 
 :root {
@@ -11,4 +13,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --color-background-color: #f2f4f5;
 }
