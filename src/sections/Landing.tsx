@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-import { Beef, Dribbble, Github, Linkedin } from "lucide-react";
+import { Dribbble, Github, Linkedin } from "lucide-react";
 import { cn } from "../utils/tools";
 
 export default function Landing() {
