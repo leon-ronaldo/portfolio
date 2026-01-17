@@ -1,9 +1,10 @@
 import Navbar from "../components/Navbar";
 import { Dribbble, Github, Linkedin } from "lucide-react";
 import { cn } from "../utils/tools";
+import Divider from "../components/Divider";
 
 export default function Landing() {
-    return <main className="flex flex-col min-h-screen w-screen items-center overflow-hidden">
+    return <section className="flex flex-col min-h-screen w-screen items-center overflow-hidden">
         <Navbar />
         <section className="flex lg:hidden flex-col justify-center w-full h-full pt-10">
             <div className="flex">
@@ -20,7 +21,7 @@ export default function Landing() {
             <SkillsShowcase />
             <ContactBar />
         </section>
-    </main>
+    </section>
 }
 
 function Intro() {
@@ -54,14 +55,6 @@ function HeroImage() {
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation anim-delay-2 -z-1 rounded-full" />
         <span className="absolute bottom-0 left-0 w-full h-10 bg-linear-to-b from-transparent to-background-color glass-morph" />
     </section>
-}
-
-function Divider() {
-    return <div className="flex self-center items-center">
-        <span className="h-1 w-1 bg-black rounded-full" />
-        <span className="h-1 w-8 bg-black rounded-full" />
-        <span className="h-1 w-1 bg-black rounded-full" />
-    </div>
 }
 
 function SkillCard({ image, title, flexible, cardClassName, titleClassName }: { image: string, title: string, flexible?: boolean, cardClassName?: string, titleClassName?: string }) {
