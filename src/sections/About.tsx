@@ -1,4 +1,4 @@
-import { cn } from "../utils/tools";
+// import { cn } from "../utils/tools";
 
 export default function About() {
     return <section className="min-h-screen w-full flex flex-col overflow-hidden">
