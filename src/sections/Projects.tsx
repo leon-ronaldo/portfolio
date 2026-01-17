@@ -1,4 +1,4 @@
-import Divider from "../components/Divider";
+// import Divider from "../components/Divider";
 
 export default function Projects() {
     return <section className="min-h-screen w-full flex flex-col gap-1 overflow-hidden relative p-2">

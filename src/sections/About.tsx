@@ -40,12 +40,12 @@ function HeroImage() {
     </section>
 }
 
-function ServiceCard({ image, cardClassName }: { image: string, cardClassName?: string }) {
-    return <div className={cn("p-2 w-34 flex flex-col bg-white rounded-2xl", cardClassName)}>
-        <img src={image} alt={image} className="w-full aspect-square rounded-2xl object-cover" />
-        <p className="mt-3 text-[9px]"> Frontend </p>
-    </div>
-}
+// function ServiceCard({ image, cardClassName }: { image: string, cardClassName?: string }) {
+//     return <div className={cn("p-2 w-34 flex flex-col bg-white rounded-2xl", cardClassName)}>
+//         <img src={image} alt={image} className="w-full aspect-square rounded-2xl object-cover" />
+//         <p className="mt-3 text-[9px]"> Frontend </p>
+//     </div>
+// }
 
 function Servies() {
     return <section className="flex-1 w-full flex flex-col">
