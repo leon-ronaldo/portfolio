@@ -19,7 +19,7 @@ export default function Projects() {
                     <img src="/images/know-to-cure-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover" />
                 </span>
                 <span className="bg-gray-700 flex">
-                    <img src="/images/ardour-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover" />
+                    <img src="/images/auto-mailer-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover" />
                 </span>
             </div>
 
