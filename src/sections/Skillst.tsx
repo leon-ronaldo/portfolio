@@ -48,6 +48,6 @@ function DecorationCircles() {
 
 function SkillSet() {
     return <section className="flex-1 relative">
-        <img src="/images/github.png" alt="github" className="w-20 aspect-square" />
+        {/* <img src="/images/github.png" alt="github" className="w-20 aspect-square" /> */}
     </section>
 }
