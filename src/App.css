@@ -16,6 +16,10 @@
   animation: wifi-float 4s ease-out infinite;
 }
 
+.rotate-full {
+  animation: rotate-full var(--spin-time, 4s) linear infinite;
+}
+
 .anim-delay-1 {
   animation-delay: 1s;
 }
@@ -46,6 +50,12 @@
 
 .anim-delay-8 {
   animation-delay: 8s;
+}
+
+@keyframes rotate-full {
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 @keyframes wifi-float {
