@@ -28,7 +28,9 @@ export default function Projects() {
                 <span className="bg-[#6a4df4] row-span-2">
                     <Intro />
                 </span>
-                <span className="bg-gray-700"></span>
+                <span className="bg-gray-700 flex">
+                    <img src="/images/echo-draft-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover" />
+                </span>
             </div>
         </div>
     </section>
