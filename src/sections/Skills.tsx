@@ -51,6 +51,10 @@ function DecorationCircles() {
 
 function SkillSet() {
 
+    interface StyleProps extends HTMLAttributes<HTMLDivElement> {
+        "--spin-time": string
+    }
+
     const Orbit = ({
         children,
         className,
@@ -58,7 +62,7 @@ function SkillSet() {
     }: {
         children: React.ReactNode;
         className: string;
-        style?: HTMLAttributes<HTMLDivElement>;
+        style?: StyleProps;
     }) => {
         const ref = useRef<HTMLDivElement>(null);
         const [radius, setRadius] = useState(0);
@@ -113,7 +117,7 @@ function SkillSet() {
 
     return <section className="flex-1 relative w-full flex justify-center min-h-[300px]">
         <div className="absolute h-full aspect-square flex">
-            <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full" style={{ "--spin-time": "16s" }}>
+            <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full " style={{ "--spin-time": "16s" }}>
                 <img src="/icons/github.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
                 <img src="/icons/docker.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
                 <img src="/icons/android-studio.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
