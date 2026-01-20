@@ -34,6 +34,7 @@ export default function Projects() {
             category: "AI / Social Platform",
             image: "/images/ardour-illustration.png",
             status: "In Development",
+            // screenshots: ["/images/ardour-illustration.png", "/images/know-to-cure-illustration.png", "/images/echo-draft-illustration.png", "/images/auto-mailer-illustration.png"]
             screenshots: []
         },
         {
@@ -154,41 +155,119 @@ function HeroImage() {
 
 
 function ProjectShowCase({ props, setProps }: { props: ProjectProps | undefined, setProps: React.Dispatch<React.SetStateAction<ProjectProps | undefined>> }) {
+    const [flip, setFlip] = useState(false);
+    const [activeShot, setActiveShot] = useState(0);
+
     return (
         <div
             className={`h-screen w-screen fixed top-0 left-0 z-200 flex ${props ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                } transition-opacity duration-300 poppins text-white`}
+                } transition-opacity duration-300 text-white`}
         >
-            <div className="glass-card h-full w-full flex p-4">
-                <div className="h-full w-full flex relative rounded-xl overflow-hidden">
+            <div className="glass-card h-full w-full p-4 relative">
+                <div className={`h-full w-full absolute poppins top-0 left-0 p-4 transition-transform duration-700 ease-out
+  ${flip ? "z-[5] rotate-y-180" : "z-[10] rotate-y-0"}`}>
 
-                    {/* Background Poster Image */}
-                    <img
-                        src={props?.image}
-                        alt=""
-                        className="h-full w-full object-cover"
-                    />
+                    <div className="h-full w-full flex relative rounded-xl overflow-hidden shadow-xl">
 
-                    {/* close button */}
-                    <button className="w-8 absolute top-2 right-2 aspect-square bg-primary-purple p-1 rounded-lg border-2 border-white" onClick={() => setProps(undefined)}>
-                        <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Close</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fillRule="evenodd"> <g id="Close"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="16.9999" y1="7" x2="7.00001" y2="16.9999" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round"> </line> <line x1="7.00006" y1="7" x2="17" y2="16.9999" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
-                    </button>
+                        {/* Background Poster Image */}
+                        <img
+                            src={props?.image}
+                            alt=""
+                            className="h-full w-full object-cover scale-[1.02]"
+                        />
 
-                    {/* Gradient Overlay */}
-                    <span className="absolute pointer-events-none inset-0 bg-linear-to-b from-transparent via-black/40 to-primary-purple" />
+                        {/* Close Button */}
+                        <button
+                            className="w-9 absolute top-3 right-3 z-30 aspect-square bg-primary-purple p-1.5 rounded-xl border border-white/40 backdrop-blur hover:scale-105 transition"
+                            onClick={() => setProps(undefined)}
+                        >
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <line x1="18" y1="6" x2="6" y2="18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                <line x1="6" y1="6" x2="18" y2="18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                        </button>
 
-                    {/* Content Layer */}
-                    <div className="absolute bottom-0 left-0 w-full p-4 flex flex-col gap-4 pb-6">
+                        {/* Gradient Overlay */}
+                        <span className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-                        {/* Title + Tagline */}
-                        <div>
-                            <h1 className="text-4xl font-semibold text-left">{props?.title}</h1>
-                            <p className="text-sm text-left">{props?.tagline}</p>
+                        {/* Content Layer */}
+                        <div className="absolute bottom-0 left-0 w-full p-5 flex flex-col gap-4 pb-7 z-20">
+
+                            {/* Title */}
+                            <div>
+                                <h1 className="text-3xl md:text-4xl font-semibold leading-tight">
+                                    {props?.title}
+                                </h1>
+                                <p className="text-sm opacity-80 mt-1">
+                                    {props?.tagline}
+                                </p>
+                            </div>
+
+                            {/* Tech Pills */}
+                            <div className="flex flex-wrap gap-2">
+                                {props?.techStack.slice(0, 3).map((tech, i) => (
+                                    <span
+                                        key={i}
+                                        className="px-2.5 py-1 rounded-xl bg-white/15 backdrop-blur border border-white/20 flex items-center gap-2 text-xs hover:bg-white/20 transition"
+                                    >
+                                        <img
+                                            src={tech.icon}
+                                            className="w-5 h-5 bg-primary-purple p-1 rounded-md border border-white"
+                                        />
+                                        {tech.tool}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Buttons */}
+                            <div className="flex items-center gap-3">
+
+                                <button
+                                    onClick={() => setFlip(true)}
+                                    className="flex-1 bg-primary-purple hover:bg-purple-600 py-3 rounded-xl font-medium transition active:scale-95 shadow-lg"
+                                >
+                                    View Details
+                                </button>
+
+                                <button
+                                    className="w-12 h-12 rounded-xl bg-white/60 flex items-center justify-center hover:bg-white/30 transition active:scale-95"
+                                    onClick={() => ""}
+                                >
+                                    <img src="/icons/github.svg" className="w-5" />
+                                </button>
+
+                            </div>
+
                         </div>
 
-                        {/* Tech Pills */}
+                    </div>
+                </div>
+
+
+                <div className={`h-full w-full absolute top-0 left-0 p-4 ${flip ? "z-[10] rotate-y-0" : "z-[5] rotate-y-180"}`}>
+                    {/* concentrate here chatgpt */}
+                    <div className="h-full w-full flex flex-col rounded-xl overflow-hidden bg-white/80 backdrop-blur-xl border border-white/30 p-4 gap-4 text-black">
+
+                        {/* HEADER */}
+                        <div className="flex items-center justify-between">
+
+                            <div className="text-left">
+                                <h2 className="text-xl font-semibold">{props?.title}</h2>
+                                <p className="text-xs opacity-70">{props?.category}</p>
+                            </div>
+
+                            <button
+                                onClick={() => setFlip(false)}
+                                className="px-3 py-1 text-xs rounded-full border border-black/20 hover:bg-black/5 transition"
+                            >
+                                Back
+                            </button>
+
+                        </div>
+
+                        {/* TECH STACK */}
                         <div className="flex flex-wrap gap-2">
-                            {props?.techStack.slice(0, 3).map((tech, i) => (
+                            {props?.techStack.map((tech, i) => (
                                 <span
                                     key={i}
                                     className="p-1 pr-3 text-xs rounded-2xl bg-white/15 backdrop-blur border border-white/20 flex items-center gap-2"
@@ -199,18 +278,68 @@ function ProjectShowCase({ props, setProps }: { props: ProjectProps | undefined,
                             ))}
                         </div>
 
-                        {/* Buttons */}
-                        <div className="flex items-center gap-3">
+                        {/* DESCRIPTION */}
+                        <div className="text-xs leading-relaxed text-black/80 text-left">
+                            {props?.description}
+                        </div>
 
-                            <button className="flex-1 bg-white/20 hover:bg-white/30 backdrop-blur py-3 rounded-2xl font-medium transition">
-                                View Project
-                            </button>
+                        {/* STATUS BAR */}
+                        <div className="flex justify-between text-xs text-black/60">
 
-                            <button className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
-                                <img src="/icons/github.svg" className="w-5" />
-                            </button>
+                            <span>
+                                Status:
+                                <span className="text-black font-medium ml-1">
+                                    {props?.status}
+                                </span>
+                            </span>
+
+                            <span>
+                                Tech:
+                                <span className="text-black font-medium ml-1">
+                                    {props?.techStack.length}
+                                </span>
+                            </span>
 
                         </div>
+
+                        {/* SCREENSHOTS SECTION */}
+                        <div className="flex-1 flex flex-col gap-3 overflow-hidden">
+
+                            {/* MAIN IMAGE */}
+                            <div className="flex-1 rounded-xl border border-black/10 overflow-hidden bg-black/5">
+                                {props?.screenshots[activeShot] ? (
+                                    <img
+                                        src={props.screenshots[activeShot]}
+                                        className="w-full h-full object-cover transition-opacity duration-300"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-xs text-black/40">
+                                        Preview Coming Soon
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* THUMBNAILS */}
+                            <div className="flex gap-2 h-20 shrink-0">
+                                {props?.screenshots.filter((_, key) => key !== activeShot).map((shot, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setActiveShot(i)}
+                                        className={`flex-1 rounded-lg overflow-hidden border transition-all
+        ${activeShot === i
+                                                ? "border-primary-purple scale-[1.03]"
+                                                : "border-black/10 opacity-70 hover:opacity-100"
+                                            }`}
+                                    >
+                                        <img
+                                            src={shot}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

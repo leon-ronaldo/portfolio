@@ -75,10 +75,10 @@ function SkillSet() {
             }
 
             updateRadius();
-            window.addEventListener("resize", updateRadius)
+            // window.addEventListener("resize", updateRadius)
 
             return () => {
-                window.removeEventListener("resize", updateRadius)
+                // window.removeEventListener("resize", updateRadius)
             }
         }, []);
 
