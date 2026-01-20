@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState, type HTMLAttributes } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { cn } from "../utils/tools";
+import type { StyleProps } from "../types";
 
 export default function Skills() {
     return <section className="min-h-screen w-full flex flex-col overflow-hidden pt-2 relative bg-primary-purple">
@@ -38,7 +39,7 @@ function HeroImage() {
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] bg-white -z-1 rounded-full"></span>
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] border-3 border-white wifi-float-animation -z-1 rounded-full" />
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] border-3 border-white wifi-float-animation anim-delay-1 -z-1 rounded-full" />
-        <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] border-3 border-white wifi-float-animation anim-delay-2 -z-1 rounded-full" />
+        <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] border-3 border-white wifi-float-animation anim-delay-2 -z-1 rounded-full" style={{ "--delay-seconds": "2s" } as StyleProps} />
         <span className="absolute bottom-0 left-0 w-full h-10 bg-linear-to-b from-transparent to-primary-purple glass-morph" />
     </section>
 }
@@ -50,11 +51,6 @@ function DecorationCircles() {
 }
 
 function SkillSet() {
-
-    interface StyleProps extends HTMLAttributes<HTMLDivElement> {
-        "--spin-time": string
-    }
-
     const Orbit = ({
         children,
         className,

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { Dribbble, Github, Linkedin } from "lucide-react";
 import { cn } from "../utils/tools";
 import Divider from "../components/Divider";
+import type { StyleProps } from "../types";
 
 export default function Landing() {
     return <section className="flex flex-col min-h-screen w-screen items-center overflow-hidden">
@@ -52,7 +53,7 @@ function HeroImage() {
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] bg-white -z-1 rounded-full"></span>
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation -z-1 rounded-full" />
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation anim-delay-1 -z-1 rounded-full" />
-        <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation anim-delay-2 -z-1 rounded-full" />
+        <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation anim-delay-2 -z-1 rounded-full" style={{ "--delay-seconds": "2s" } as StyleProps} />
         <span className="absolute bottom-0 left-0 w-full h-10 bg-linear-to-b from-transparent to-background-color glass-morph" />
     </section>
 }
