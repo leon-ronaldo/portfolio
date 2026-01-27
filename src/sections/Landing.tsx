@@ -5,18 +5,17 @@ import Divider from "../components/Divider";
 import type { StyleProps } from "../types";
 
 export default function Landing() {
-    return <section className="flex flex-col min-h-screen w-screen items-center overflow-hidden">
+    return <section className="flex flex-col min-h-screen w-full items-center overflow-hidden">
         <Navbar />
         <section className="flex lg:hidden flex-col justify-center w-full h-full pt-10">
             <div className="flex">
                 <Intro />
                 <HeroImage />
             </div>
-
             <SkillsShowcase />
             <ContactBar />
         </section>
-        <section className="w-full hidden lg:flex items-stretch h-full">
+        <section className="w-full hidden lg:flex items-stretch h-full flex-1">
             <Intro />
             <HeroImage />
             <SkillsShowcase />

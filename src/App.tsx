@@ -6,7 +6,7 @@ import Skills from './sections/Skills'
 
 function App() {
   return (
-    <main className='flex flex-col'>
+    <main className='flex flex-col w-full'>
       <Landing />
       <About />
       <Skills />

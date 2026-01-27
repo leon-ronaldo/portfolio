@@ -1,13 +1,74 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "../utils/tools";
-import type { StyleProps } from "../types";
+import { Queue, type Skill, type StyleProps } from "../types";
+import { motion } from "framer-motion";
+
+const skills: Skill[] = [
+    {
+        icon: "/icons/ai.png",
+        title: "AI Systems",
+        description:
+            "I design and develop intelligent systems that automate workflows and improve user experiences. With hands-on experience in chatbots and AI-powered automation, I focus on building scalable, reliable, and production-ready solutions that integrate smoothly with modern applications."
+    },
+    {
+        icon: "/icons/android-studio.svg",
+        title: "Android Studio",
+        description:
+            "I develop and debug native Android applications with a focus on performance, stability, and clean architecture. I work on building responsive mobile interfaces and optimizing app behavior across different devices and screen sizes."
+    },
+    {
+        icon: "/icons/api.svg",
+        title: "API Development",
+        description:
+            "I design and implement secure, scalable RESTful APIs that enable smooth communication between frontend and backend systems. My focus is on building well-structured endpoints with proper authentication, validation, and performance optimization."
+    },
+    {
+        icon: "/icons/aws.svg",
+        title: "AWS",
+        description:
+            "I deploy and manage cloud-based applications using AWS services to ensure scalability, reliability, and high availability. I focus on optimizing infrastructure for performance, security, and cost efficiency."
+    },
+    {
+        icon: "/icons/docker.svg",
+        title: "Docker",
+        description:
+            "I use Docker to containerize applications for consistent development and deployment environments. This allows me to streamline workflows, improve portability, and ensure reliable application behavior across different systems."
+    },
+    {
+        icon: "/icons/flutter.svg",
+        title: "Flutter",
+        description:
+            "I build high-performance cross-platform mobile applications using Flutter with a strong focus on UI design, smooth animations, and responsive layouts. I aim to deliver visually appealing and scalable app experiences."
+    },
+    {
+        icon: "/icons/react.svg",
+        title: "React",
+        description:
+            "I develop modern, component-based web applications using React with a focus on clean architecture and performance optimization. I build interactive user interfaces that are responsive, maintainable, and scalable."
+    },
+    {
+        icon: "/icons/node-js.svg",
+        title: "NodeJS",
+        description:
+            "I build backend services using Node.js to handle business logic, APIs, and real-time communication. I focus on writing efficient, scalable, and secure server-side applications."
+    },
+    {
+        icon: "/icons/github.svg",
+        title: "GitHub",
+        description:
+            "I use GitHub for version control, collaboration, and project management. I follow structured workflows with proper branching, code reviews, and documentation to maintain clean and organized codebases."
+    }
+];
+
 
 export default function Skills() {
     return <section className="min-h-screen w-full flex flex-col overflow-hidden pt-2 relative bg-primary-purple">
         <DecorationCircles />
         <Intro />
-        <SkillSet />
-        <HeroImage />
+        <div className="flex flex-col flex-1">
+            <SkillSet />
+            <HeroImage />
+        </div>
     </section>
 }
 
@@ -34,7 +95,7 @@ function Intro() {
 
 
 function HeroImage() {
-    return <section className="self-center justify-self-start w-[40%] pt-8 relative lg:h-[90%] lg:max-w-full xl:flex-1">
+    return <section className="self-center justify-self-start aspect-[9/16] pt-8 relative max-h-[380px] lg:max-w-full xl:flex-1">
         <img src="/images/leon-look-up.png" alt="leon.png" className="h-full w-full object-cover rotate-y-180" />
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] bg-white -z-1 rounded-full"></span>
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[11%] border-3 border-white wifi-float-animation -z-1 rounded-full" />
@@ -110,33 +171,86 @@ function SkillSet() {
         );
     };
 
+    const AlternateOrbit = () => {
+        const [skillQueue, setSkillQueue] = useState<Queue<Skill>>(
+            () => new Queue<Skill>(...skills)
+        );
 
-    return <section className="flex-1 relative w-full flex justify-center min-h-[300px]">
-        <div className="absolute h-full aspect-square flex">
-            <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full " style={{ "--spin-time": "16s" }}>
-                <img src="/icons/github.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/docker.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/android-studio.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/aws.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/python.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/java.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-            </Orbit>
-        </div>
 
-        <div className="absolute h-full p-12 aspect-square flex">
-            <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full" style={{ "--spin-time": "12s" }}>
-                <img src="/icons/node-js.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/firebase.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/websocket.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/django.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-            </Orbit>
-        </div>
+        useEffect(() => {
 
-        <div className="absolute h-full p-24 aspect-square flex">
-            <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full" style={{ "--spin-time": "8s" }}>
-                <img src="/icons/flutter.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-                <img src="/icons/react.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
-            </Orbit>
+            const interval = setInterval(() => {
+
+                setSkillQueue(prev => prev.enqueue(prev[0]));
+
+            }, 2000);
+
+            return () => clearInterval(interval);
+
+        }, []);
+
+        const animationProps = {
+            animate: { opacity: 1 },
+            initial: { opacity: 0 },
+            transition: { duration: 0.2 }
+        }
+
+
+        return <div className="w-[150%] absolute rounded-full aspect-square top-1/4 -left-[25%] flex flex-col items-center">
+            <motion.img key={skillQueue[0].title} {...animationProps} src={skillQueue[0].icon} alt={skillQueue[0].title} className="w-20 lg:w-26 hidden lg:block aspect-square bg-primary-purple p-3 lg:p-4 absolute top-50 left-[18%] -translate-x-1/2 rounded-full border-2 border-white" />
+            <motion.img key={skillQueue[1].title} {...animationProps} src={skillQueue[1].icon} alt={skillQueue[1].title} className="w-20 lg:w-26 aspect-square bg-primary-purple p-3 lg:p-4 absolute top-24 left-[18%] lg:left-[28%] -translate-x-1/2 rounded-full border-2 border-white" />
+            <motion.img key={skillQueue[2].title} {...animationProps} src={skillQueue[2].icon} alt={skillQueue[2].title} className="w-20 lg:w-26 aspect-square bg-primary-purple p-3 lg:p-4 absolute top-4 left-[32%] lg:left-[38%] -translate-x-1/2 rounded-full border-2 border-white" />
+
+
+            <motion.img key={skillQueue[3].title} {...animationProps} src={skillQueue[3].icon} alt={skillQueue[3].title} className="w-30 lg:w-46 aspect-square bg-primary-purple p-4 lg:p-8 absolute -top-15 left-1/2 -translate-x-1/2 rounded-full border-4 border-white" />
+
+
+            <motion.img key={skillQueue[4].title} {...animationProps} src={skillQueue[4].icon} alt={skillQueue[4].title} className="w-20 lg:w-26 aspect-square bg-primary-purple p-3 lg:p-4 absolute top-4 left-[68%] lg:left-[62%] -translate-x-1/2 rounded-full border-2 border-white" />
+            <motion.img key={skillQueue[5].title} {...animationProps} src={skillQueue[5].icon} alt={skillQueue[5].title} className="w-20 lg:w-26 aspect-square bg-primary-purple p-3 lg:p-4 absolute top-24 left-[82%] lg:left-[72%] -translate-x-1/2 rounded-full border-2 border-white" />
+            <motion.img key={skillQueue[6].title} {...animationProps} src={skillQueue[6].icon} alt={skillQueue[6].title} className="w-20 lg:w-26 hidden lg:block aspect-square bg-primary-purple p-3 lg:p-4 absolute top-50 left-[82%] -translate-x-1/2 rounded-full border-2 border-white" />
+
+            <span className="h-30 lg:h-50"></span>
+
+            <motion.p {...animationProps} key={skillQueue[3].icon} className=" text-white font-bold text-3xl lg:text-5xl mb-2"> {skillQueue[3].title} </motion.p>
+
+            <motion.p {...animationProps} key={skillQueue[3].description} className="max-w-xs text-xs text-white leading-relaxed">
+                {skillQueue[3].description}
+            </motion.p>
         </div>
-    </section>
+    }
+
+    return <>
+        <section className="flex sm:hidden flex-1 relative w-[80%] self-center justify-center min-h-[300px] mb-14 mt-6">
+            <div className="absolute w-full aspect-square flex">
+                <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full " style={{ "--spin-time": "16s" }}>
+                    <img src="/icons/github.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/docker.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/android-studio.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/aws.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/python.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/java.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                </Orbit>
+            </div>
+
+            <div className="absolute w-full p-12 aspect-square flex">
+                <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full" style={{ "--spin-time": "12s" }}>
+                    <img src="/icons/node-js.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/firebase.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/websocket.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/django.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                </Orbit>
+            </div>
+
+            <div className="absolute w-full p-24 aspect-square flex">
+                <Orbit className="h-full w-full border-2 border-white rounded-full rotate-full" style={{ "--spin-time": "8s" }}>
+                    <img src="/icons/flutter.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                    <img src="/icons/react.svg" alt="github" className="w-10 aspect-square bg-primary-purple p-1.5 rounded-full border-2 border-white" />
+                </Orbit>
+            </div>
+        </section>
+
+        <section className="hidden sm:flex w-full overflow-hidden flex-1 relative min-h-[400px] lg:min-h-[500px]">
+            <AlternateOrbit />
+        </section>
+    </>
 }

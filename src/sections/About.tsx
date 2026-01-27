@@ -30,8 +30,8 @@ function Intro() {
 }
 
 function HeroImage() {
-    return <section className="self-start justify-self-start pl-5 w-1/2 relative lg:h-[90%] lg:max-w-full xl:flex-1">
-        <img src="/images/leon-look-up.png" alt="leon.png" className="h-full w-full object-cover rotate-y-180" />
+    return <section className="self-start justify-self-start pl-5 w-1/2 relative lg:max-h-[50vh] lg:max-w-full xl:flex-1">
+        <img src="/images/leon-look-up.png" alt="leon.png" className="h-full w-full object-contain rotate-y-180 aspect-2/3" />
         {/* <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] bg-white -z-1 rounded-full"></span>
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation -z-1 rounded-full" />
         <span className="aspect-square w-[120%] absolute -bottom-5 -left-[10%] border-3 border-white wifi-float-animation anim-delay-1 -z-1 rounded-full" />

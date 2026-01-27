@@ -91,7 +91,7 @@ export default function Projects() {
     ]
 
 
-    return <section className="min-h-screen w-full flex flex-col gap-1 overflow-hidden relative p-2">
+    return <section className="min-h-screen w-full flex gap-1 overflow-hidden relative p-2">
         <ProjectShowCase props={activeProject} setProps={setActiveProject} />
         <div className="grid grid-cols-2 h-full w-full gap-2">
             {/* left side */}
