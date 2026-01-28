@@ -1,12 +1,13 @@
 import Navbar from "../components/Navbar";
-import { Dribbble, Github, Linkedin } from "lucide-react";
+import { Github, Phone } from "lucide-react";
 import { cn } from "../utils/tools";
 import Divider from "../components/Divider";
 import type { StyleProps } from "../types";
 
 export default function Landing() {
-    return <section className="flex flex-col min-h-screen w-full items-center overflow-hidden">
+    return <section className="flex flex-col min-h-screen w-full items-center overflow-hidden" id="home">
         <Navbar />
+        <span className="h-20 lg:h-40"></span>
         <section className="flex lg:hidden flex-col justify-center w-full h-full pt-10">
             <div className="flex">
                 <Intro />
@@ -36,10 +37,10 @@ function Intro() {
                     LEON
                 </h1>
 
-                <p className="max-w-xl text-xs text-gray-500 leading-relaxed">
-                    Designer with 12 years experience sketching, building and coaching.
-                    I love fun UI, collaboration and making helpful products that connect people.
+                <p className="max-w-xl mb-6 text-xs text-gray-500 leading-relaxed">
+                    Designer and Developer with hands-on experience in creating intuitive user interfaces, building scalable design systems, and collaborating with cross-functional teams to deliver user-focused products.
                 </p>
+
 
             </div>
         </section>
@@ -144,7 +145,7 @@ function SkillsShowcase() {
 
 function ContactBar() {
     return (
-        <div className="lg:fixed left-0 bottom-0 w-full flex justify-center">
+        <div className="lg:fixed z-123 left-0 bottom-0 w-full flex justify-center">
             <div className="flex justify-start max-w-360 w-full">
                 <div className="flex flex-col items-center gap-4 mt-6 pb-8 px-6 w-full lg:w-fit">
                     <span className="lg:hidden">
@@ -152,34 +153,31 @@ function ContactBar() {
                     </span>
 
                     {/* Email pill */}
-                    <div className="bg-white w-full rounded-full px-6 py-3 text-sm text-gray-700">
+                    <a href="mailto:ronaldoleon029@gmail.com" target="_blank" rel="noopener noreferrer" className="bg-white w-full rounded-full px-6 py-3 text-sm text-gray-700">
                         ronaldoleon029@gmail.com
-                    </div>
+                    </a>
 
                     {/* Social icons */}
                     <div className="flex gap-4">
-                        {/* Mail */}
                         <a
-                            href="mailto:morgan@email.com"
+                            href="https://www.linkedin.com/in/leon-ronaldo-s/" target="_blank" rel="noopener noreferrer"
                             className="w-12 h-12 rounded-2xl bg-blue-500 flex items-center justify-center hover:scale-105 transition"
                         >
-                            <Linkedin fill="white" className="text-white w-5 h-5" />
+                            <img src="/icons/linkedin.svg" alt="" className="w-8 h-8" />
                         </a>
 
-                        {/* Twitter */}
                         <a
-                            href="#"
+                            href="https://github.com/leon-ronaldo" target="_blank" rel="noopener noreferrer"
                             className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center hover:scale-105 transition"
                         >
                             <Github fill="#2b7fff" className="text-blue-500 w-5 h-5" />
                         </a>
 
-                        {/* Behance */}
                         <a
-                            href="#"
+                            href="tel:+9787416631" target="_blank" rel="noopener noreferrer"
                             className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center hover:scale-105 transition"
                         >
-                            <Dribbble fill="#ffabe7" className="text-[#bc569f] w-5 h-5" />
+                            <Phone fill="#1e2939" className="w-5 h-5 text-[#1e2939]" />
                         </a>
                     </div>
                 </div>

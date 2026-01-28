@@ -62,7 +62,7 @@ const skills: Skill[] = [
 
 
 export default function Skills() {
-    return <section className="min-h-screen w-full flex flex-col overflow-hidden pt-2 relative bg-primary-purple">
+    return <section className="min-h-screen w-full flex flex-col overflow-hidden pt-2 relative bg-primary-purple" id="skills">
         <DecorationCircles />
         <Intro />
         <div className="flex flex-col flex-1">
@@ -80,14 +80,13 @@ function Intro() {
                     My technical
                 </p>
 
-                <h1 className="text-4xl tracking-[3px] sm:text-6xl md:text-8xl font-extrabold text-gray-800 leading-none mb-3 text-shadow">
+                <h1 className="text-4xl tracking-[3px] sm:text-6xl xl:text-8xl font-extrabold text-gray-800 leading-none mb-3 text-shadow">
                     SKILLS
                 </h1>
 
                 <p className="max-w-xs text-xs text-white leading-relaxed">
-                    I bring 4+ years of hands-on experience building industry-relevant systems using modern backend frameworks, frontend technologies, and data-driven architectures.
+                    I have 2+ years of hands-on experience building reliable, scalable applications using modern frontend, backend, and data-driven technologies.
                 </p>
-
             </div>
         </section>
     );
