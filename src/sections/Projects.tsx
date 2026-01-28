@@ -220,7 +220,7 @@ export default function Projects() {
 
                         <span className="flex gap-2 justify-end mt-4 mb-8">
                             {activeProject.screenshots.map((screenshot, index) => (
-                                <img onClick={() => setScreenShotImage(`/images/${screenshot}`)} key={index} src={`/images/${screenshot}`} alt={`${activeProject.title}-screenshot-${index + 1}`} className="aspect-square w-50 shadow-2xl shadow-gray-400 object-cover rounded-2xl overflow-clip" />
+                                <img onClick={() => setScreenShotImage(`/images/${screenshot}`)} key={index} src={`/images/${screenshot}`} alt={`${activeProject.title}-screenshot-${index + 1}`} className="cursor-pointer hover:scale-[1.05] aspect-square w-50 shadow-2xl shadow-gray-400 object-cover rounded-2xl overflow-clip" />
                             ))}
                         </span>
                     </div>
@@ -230,19 +230,19 @@ export default function Projects() {
 
 
             <div className="flex-1 flex gap-4 items-end max-w-[1120px] mx-auto">
-                <span className={`flex flex-col items-start ${classNames[0]} `} onClick={() => { substitute(0); setActiveProject(projects[0]); }}>
+                <span className={`flex flex-col items-start hover:scale-[1.05] cursor-pointer ${classNames[0]} `} onClick={() => { substitute(0); setActiveProject(projects[0]); }}>
                     <p className="text-xs"> @ardour.ai </p>
                     <img src="/images/ardour-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover rounded-2xl overflow-clip" />
                 </span>
-                <span className={`flex flex-col items-start ${classNames[1]} `} onClick={() => { substitute(1); setActiveProject(projects[1]); }}>
+                <span className={`flex flex-col items-start hover:scale-[1.05] cursor-pointer ${classNames[1]} `} onClick={() => { substitute(1); setActiveProject(projects[1]); }}>
                     <p className="text-xs"> @knowtocure </p>
                     <img src="/images/know-to-cure-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover rounded-2xl overflow-clip" />
                 </span>
-                <span className={`flex flex-col items-start ${classNames[2]} `} onClick={() => { substitute(2); setActiveProject(projects[2]); }}>
+                <span className={`flex flex-col items-start hover:scale-[1.05] cursor-pointer ${classNames[2]} `} onClick={() => { substitute(2); setActiveProject(projects[2]); }}>
                     <p className="text-xs"> @auto-mailer </p>
                     <img src="/images/auto-mailer-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover rounded-2xl overflow-clip" />
                 </span>
-                <span className={`flex flex-col items-start ${classNames[3]} `} onClick={() => { substitute(3); setActiveProject(projects[3]); }}>
+                <span className={`flex flex-col items-start hover:scale-[1.05] cursor-pointer ${classNames[3]} `} onClick={() => { substitute(3); setActiveProject(projects[3]); }}>
                     <p className="text-xs"> @echo-draft </p>
                     <img src="/images/echo-draft-illustration.png" alt="ardour-illustration" className="h-full w-full object-cover rounded-2xl overflow-clip" />
                 </span>
